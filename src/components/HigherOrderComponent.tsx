@@ -4,6 +4,9 @@ import { useRouter } from 'next/router';
 // React Imports
 import React, { FC, Fragment, ReactNode, useEffect, useState } from 'react';
 
+//UI Imports
+import { SideBar } from './ui/sidebar';
+
 // Next JS Imports
 
 // Loading Overlay Imports
@@ -56,6 +59,7 @@ const HigherOrderComponent: FC<IHigherOrderComponentProps> = ({ children }) => {
         spinner
         className='h-[100vh]'
       >
+        <SideBar className='flex' />
         <div>{children}</div>
       </LoadingOverlay>
     </Fragment>
