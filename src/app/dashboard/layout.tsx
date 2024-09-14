@@ -22,20 +22,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={`${inter.className} ${manrope.className}`}>
-        <div className='w-full flex'>
-          <SideBar className='w-[280px]' />
-          <div className='flex-1 flex flex-col'>
-            {/* Container for Header and Providers */}
+    <main className={`${inter.className} ${manrope.className}`}>
+      <div className='w-full flex'>
+        <SideBar className='w-[280px]' />
+        <div className='flex-1 flex flex-col'>
+          {/* Container for Header and Providers */}
 
-            <Header />
-            <div className='flex-1'>
-              <Providers>{children}</Providers>
-            </div>
+          <Header />
+          <div className='flex-1'>
+            <Providers>{children}</Providers>
           </div>
         </div>
-      </body>
-    </html>
+      </div>
+    </main>
   );
 }
