@@ -26,11 +26,14 @@ import { IUserResponse } from '@/types/Interfaces/schedule.interface';
 const ScheduleView = ({ userData }: { userData: IUserResponse }) => {
   return (
     <Fragment>
-      <div className='flex'>
+      <div
+        className='flex 
+      '
+      >
         <div className=' mt-[47.5px] w-[194px]'>
           <Command>
             <CommandInput placeholder='Find Staff' />
-            <CommandList className='mt-2 ml-2 max-h-[1728px]'>
+            <CommandList className='mt-2 ml-2 max-h-[1728px] custom-scrollbar'>
               <CommandEmpty>No results found.</CommandEmpty>
 
               {userData.results.map(item => (

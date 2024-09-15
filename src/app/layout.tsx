@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} ${manrope.className}`}>
+      <body className={`${inter.className} ${manrope.className} `}>
         <Providers>{children}</Providers>
       </body>
     </html>
