@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-export default async function () {
+export default async function TimeManagement() {
   return (
     <Fragment>
       <div className='flex items-center justify-center'>

@@ -6,7 +6,7 @@ import { IUserResponse } from '@/types/Interfaces/schedule.interface';
 
 //UI IMports
 
-export default async function () {
+export default async function Schedule() {
   const data: IUserResponse = await fetchUser();
 
   return (

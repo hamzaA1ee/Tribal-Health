@@ -19,3 +19,11 @@ export interface IUser {
 export interface IUserResponse {
   results: IUser[];
 }
+
+export interface IEventInfo {
+  timeText: string;
+  event: {
+    title: string;
+    start: Date;
+  };
+}

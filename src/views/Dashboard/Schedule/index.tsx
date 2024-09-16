@@ -1,6 +1,6 @@
 'use client';
 // React Imports
-import { FC, Fragment, useState } from 'react';
+import { Fragment } from 'react';
 
 //view imports
 import { ReactCalendar } from '../../ReactCalendar';
@@ -10,7 +10,6 @@ import { ReactCalendar } from '../../ReactCalendar';
 import {
   Command,
   CommandEmpty,
-  CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
@@ -26,11 +25,14 @@ import { IUserResponse } from '@/types/Interfaces/schedule.interface';
 const ScheduleView = ({ userData }: { userData: IUserResponse }) => {
   return (
     <Fragment>
+      <div className='w-full h-[50px] flex items-center justify-end'>
+        <button className='p-4 mr-5 mb-2 bg-black text-white'>helo</button>
+      </div>
       <div
         className='flex 
       '
       >
-        <div className=' mt-[47.5px] w-[194px]'>
+        <div className=' mt-[47.5px] w-[194px] '>
           <Command>
             <CommandInput placeholder='Find Staff' />
             <CommandList className='mt-2 ml-2 max-h-[1728px] custom-scrollbar'>
@@ -67,7 +69,7 @@ const ScheduleView = ({ userData }: { userData: IUserResponse }) => {
             </CommandList>
           </Command>
         </div>
-        <div className='flex-1  overflow-y-auto'>
+        <div className='flex-1 mt-4  overflow-y-auto'>
           <ReactCalendar />
         </div>
       </div>
