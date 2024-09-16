@@ -35,7 +35,7 @@ export const DropDowns = ({
       {!search && (
         <DropdownMenu>
           <DropdownMenuTrigger
-            className={`w-[${width.toString()}px] h-[${height.toString()}px] text-sm bg-white border-2 border-borderGray mr-2 rounded-lg flex items-center justify-center `}
+            className={`w-[120px] h-[36px] text-sm bg-white border-2 border-borderGray mr-2 rounded-lg flex items-center justify-center `}
           >
             {title}
             {

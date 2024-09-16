@@ -23,6 +23,8 @@ import blueHospital from '../../../public/assets/images/blue-hospital.png';
 import blueCalendar from '../../../public/assets/images/blue-calendar-2.png';
 import blueCube from '../../../public/assets/images/blue-3dcube.png';
 import blueClock from '../../../public/assets/images/blue-clock.png';
+import edit from '../../../public/assets/images/edit.png';
+import trash from '../../../public/assets/images/trash.png';
 
 //interface imports
 import { IEventInfo } from '@/types/Interfaces/schedule.interface';
@@ -69,138 +71,179 @@ function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
       <div className='flex items-center w-full justify-between '>
         {' '}
         <Dialog>
-          <DialogTrigger className='bg-white font-inter text-[12px] font-medium '>
+          <DialogTrigger className='bg-white font-inter text-[12px] font-medium'>
             {eventInfo.timeText + ' ' + eventInfo.event.title}
           </DialogTrigger>
-          <DialogContent className='w-[600px] h-[500px]'>
+          <DialogContent className='w-[600px] h-[500px] p-4'>
             <DialogHeader>
-              <DialogTitle className='font-inter font-medium text-[18px] mb-5'>
+              <DialogTitle className='font-inter font-medium text-[18px] '>
                 View Shift
               </DialogTitle>
             </DialogHeader>
-            <div className='flex items-center justify-center'>
-              <Image
-                src={blueHospital}
-                width={24}
-                alt='hospital'
-                height={24}
-                className='  '
-              />
 
-              <div className=' ml-2 flex items-center justify-between w-full'>
-                <p className='font-medium font-inter text-[14px]'>Sites</p>
-                <p className='text-[14px] font-medium  font-inter text-customGray'>
-                  Pine Ridge Service Unit
-                </p>
+            <div className='space-y-2 w-[490px]'>
+              <div className='flex items-center '>
+                <Image
+                  src={blueHospital}
+                  width={24}
+                  alt='hospital'
+                  height={24}
+                />
+                <div className='ml-2 flex-grow'>
+                  <div className='flex items-center justify-between'>
+                    <p className='font-medium font-inter text-[14px]'>Sites</p>
+                    <p className='text-[14px] font-medium font-inter text-customGray'>
+                      Pine Ridge
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <hr />
-            <div className='flex items-center justify-center'>
-              <Image
-                src={blueCube}
-                width={24}
-                alt='hospital'
-                height={24}
-                className='  '
-              />
-              <div className=' ml-2 flex items-center justify-between w-full'>
-                <p className='font-medium font-inter text-[14px]'>Sites</p>
-                <p className='text-[14px] font-medium  font-inter text-customGray'>
-                  Pine Ridge Service Unit
-                </p>
+              <hr className='bg-borderGray' />
+
+              <div className='flex items-center'>
+                <Image
+                  src={blueCube}
+                  width={24}
+                  alt='cube'
+                  height={24}
+                />
+                <div className='ml-2 flex-grow'>
+                  <div className='flex items-center justify-between'>
+                    <p className='font-medium font-inter text-[14px]'>Job</p>
+                    <p className='text-[14px] font-medium font-inter text-customGray'>
+                      Pine Ridge Service Unit
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <hr />
-            <div className='flex items-center justify-center'>
-              <Image
-                src={blueCalendar}
-                width={24}
-                alt='hospital'
-                height={24}
-                className='  '
-              />
-              <div className=' ml-2 flex items-center justify-between w-full'>
-                <p className='font-medium font-inter text-[14px]'>Job</p>
-                <p className='text-[14px] font-medium  font-inter text-customGray'>
-                  Emergency Medicine
-                </p>
+              <hr className='bg-borderGray' />
+
+              <div className='flex items-center'>
+                <Image
+                  src={blueCalendar}
+                  width={24}
+                  alt='calendar'
+                  height={24}
+                />
+                <div className='ml-2 flex-grow'>
+                  <div className='flex items-center justify-between'>
+                    <p className='font-medium font-inter text-[14px]'>Date</p>
+                    <p className='text-[14px] font-medium font-inter text-customGray'>
+                      Emergency Medicine
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <hr />
-            <div className='flex items-center justify-center'>
-              <Image
-                src={blueClock}
-                width={24}
-                alt='hospital'
-                height={24}
-                className='  '
-              />
-              <div className=' ml-2 flex items-center justify-between w-full'>
-                <p className='font-medium font-inter text-[14px]'>Date</p>
-                <p className='text-[14px] font-medium  font-inter text-customGray'>
-                  MON 24/05/2024
-                </p>
+              <hr className='bg-borderGray' />
+
+              <div className='flex items-center'>
+                <Image
+                  src={blueClock}
+                  width={24}
+                  alt='clock'
+                  height={24}
+                />
+                <div className='ml-2 flex-grow'>
+                  <div className='flex items-center justify-between'>
+                    <p className='font-medium font-inter text-[14px]'>
+                      Schedule Start
+                    </p>
+                    <p className='text-[14px] font-medium font-inter text-customGray'>
+                      MON 24/05/2024
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <hr />
-            <div className='flex items-center justify-center'>
-              <Image
-                src={blueClock}
-                width={24}
-                alt='hospital'
-                height={24}
-                className='  '
-              />
-              <div className=' ml-2 flex items-center justify-between w-full'>
-                <p className='font-medium font-inter text-[14px]'>Sites</p>
-                <p className='text-[14px] font-medium  font-inter text-customGray'>
-                  -
-                </p>
+              <hr className='bg-borderGray' />
+
+              <div className='flex items-center'>
+                <Image
+                  src={blueClock}
+                  width={24}
+                  alt='clock'
+                  height={24}
+                />
+                <div className='ml-2 flex-grow'>
+                  <div className='flex items-center justify-between'>
+                    <p className='font-medium font-inter text-[14px]'>
+                      Schedule End
+                    </p>
+                    <p className='text-[14px] font-medium font-inter text-customGray'>
+                      {'-'}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <hr />
-            <div className='flex items-center justify-center'>
-              <Image
-                src={blueClock}
-                width={24}
-                alt='hospital'
-                height={24}
-                className='  '
-              />
-              <div className=' ml-2 flex items-center justify-between w-full'>
-                <p className='font-medium font-inter text-[14px]'>Sites</p>
-                <p className='text-[14px] font-medium  font-inter text-customGray'>
-                  -
-                </p>
+              <hr className='bg-borderGray' />
+
+              <div className='flex items-center'>
+                <Image
+                  src={blueClock}
+                  width={24}
+                  alt='clock'
+                  height={24}
+                />
+                <div className='ml-2 flex-grow '>
+                  <div className='flex mr-3 items-center justify-between '>
+                    <p className='font-medium font-inter text-[14px]'>
+                      Actual Start
+                    </p>
+                    <p className='text-[14px] font-medium font-inter text-customGray'>
+                      -
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <hr />
-            {/* <div className='flex items-center justify-center'>
-              <Avatar className='w-[58px] h-[58px]'>
-                <AvatarImage src='https://github.com/shadcn.png' />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div className=' ml-2 flex items-center justify-between w-full'>
-                <p className='font-medium font-inter text-[14px]'>
+              <hr className='bg-borderGray ' />
+              <div className='flex items-center'>
+                <Image
+                  src={blueClock}
+                  width={24}
+                  alt='clock'
+                  height={24}
+                />
+                <div className='ml-2 flex-grow '>
+                  <div className='flex mr-3 items-center justify-between '>
+                    <p className='font-medium font-inter text-[14px]'>
+                      Actual End
+                    </p>
+                    <p className='text-[14px] font-medium font-inter text-customGray'>
+                      -
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr className='bg-borderGray ' />
+              <div className='flex items-center justify-star'>
+                <Avatar className='h-[58px] w-[58px]'>
+                  <AvatarImage src='https://github.com/shadcn.png' />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <p className='font-inter ml-2 mt-5 mb-5 font-medium text-neutralGrey'>
                   Devon Lames
                 </p>
               </div>
-            </div> */}
 
-            <div className='flex items-center justify-center'>
-              <button className='w-[272px] h-[36px] rounded-lg font-inter font-medium text-[14px] text-red-500 '>
-                {
+              <div className='flex items-center justify-between '>
+                <button className='w-[272px] h-[36px] rounded-lg font-inter font-medium mr-2 text-[14px] text-red-500 flex items-center justify-center border-2 border-borderGray'>
                   <Image
-                    className=''
-                    src={copy}
+                    src={trash}
                     alt='copy'
                     width={16}
                     height={16}
                   />
-                }{' '}
-                Delete
-              </button>
-              <button></button>
+                  <span className='ml-2'>Delete</span>
+                </button>
+                <button className='w-[272px] h-[36px] rounded-lg font-inter font-medium text-[14px] text-sideBarBlue flex items-center justify-center border-2 border-borderGray'>
+                  <Image
+                    src={edit}
+                    alt='copy'
+                    width={16}
+                    height={16}
+                  />
+                  <span className='ml-2'>Edit</span>
+                </button>
+              </div>
             </div>
           </DialogContent>
         </Dialog>

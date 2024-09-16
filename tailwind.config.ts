@@ -29,6 +29,7 @@ const config: Config = {
         sideBarBlue: '#263B8C',
         staticWhite: '#FFFFFF',
         borderGray: '#DCDFE4',
+        neutralGrey: '#333839',
         darkSideBarBlue: '#112161',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
