@@ -17,7 +17,7 @@ export default async function Schedule() {
 }
 
 const fetchUser = async () => {
-  const userData = await fetch('https://randomuser.me/api/?results=40');
+  const userData = await fetch('https://randomuser.me/api/?results=10');
   if (!userData.ok) throw new Error('Failed to fetch users');
   const data: IUserResponse = await userData.json();
   return data;

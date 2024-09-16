@@ -28,6 +28,7 @@ const config: Config = {
         searchColor: '#667085',
         sideBarBlue: '#263B8C',
         staticWhite: '#FFFFFF',
+        borderGray: '#DCDFE4',
         darkSideBarBlue: '#112161',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

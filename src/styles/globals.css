@@ -21,7 +21,9 @@
 .fc-event-title {
   @apply text-sm font-medium text-green-600 tracking-wide;
 }
-
+.logo {
+  filter: hue-rotate(180deg) brightness(1.5); /* Adjust to achieve blue color */
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
