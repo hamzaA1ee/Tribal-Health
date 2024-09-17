@@ -77,7 +77,25 @@ export const DropDowns = ({
             <SearchBox
               height={410}
               width={552}
-              userData={userData}
+              userData={
+                userData || {
+                  results: [
+                    {
+                      id: {
+                        value: '',
+                      },
+                      name: {
+                        first: '',
+                        last: '',
+                      },
+                      picture: {
+                        medium: '',
+                        large: '',
+                      },
+                    },
+                  ],
+                }
+              }
             />
           </DropdownMenuContent>
         </DropdownMenu>
