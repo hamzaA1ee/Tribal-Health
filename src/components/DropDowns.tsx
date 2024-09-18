@@ -11,13 +11,7 @@ import {
 //Next Imports
 import Image, { StaticImageData } from 'next/image';
 import { SearchBox } from './SearchBox';
-import {
-  IUserResponse,
-  scheduleValues,
-} from '@/types/Interfaces/schedule.interface';
-
-//formik imports
-import { useFormikContext } from 'formik';
+import { IUserResponse } from '@/types/Interfaces/schedule.interface';
 
 export const DropDowns = ({
   src,

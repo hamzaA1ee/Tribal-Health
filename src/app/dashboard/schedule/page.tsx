@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 //View Imports
 import ScheduleView from '@/views/Dashboard/Schedule';
-import { IEvent, IUserResponse } from '@/types/Interfaces/schedule.interface';
+import { IUserResponse } from '@/types/Interfaces/schedule.interface';
 
 export default async function Schedule() {
   const data: IUserResponse = await fetchUser();

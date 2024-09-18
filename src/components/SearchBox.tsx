@@ -35,8 +35,6 @@ export const SearchBox = ({
   height: number;
   event: boolean;
 }) => {
-  const [checked, setChecked] = useState(false);
-  const [clicked, setClicked] = useState(0);
   const { values, setFieldValue } = useFormikContext<scheduleValues>();
   return (
     <Fragment>
