@@ -15,7 +15,7 @@ import arrowDown from '../../../../public/assets/images/arrow-down.png';
 import { SearchBox } from '@/components/SearchBox';
 import { toast } from 'sonner';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 //UI imports
 
 import {
@@ -49,7 +49,7 @@ import { scheduleSchema } from '@/schema/schedule.schema';
 import { scheduleValues } from '@/types/Interfaces/schedule.interface';
 
 //formik imports
-import { Formik, Form, FormikProvider, useFormik } from 'formik';
+import { Form, FormikProvider, useFormik } from 'formik';
 
 //mock imports
 import { scheduleInitialValues } from '@/mock/schedule.mock';

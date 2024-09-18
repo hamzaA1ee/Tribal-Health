@@ -32,8 +32,6 @@ import { scheduleValues } from '@/types/Interfaces/schedule.interface';
 import { scheduleInitialValues } from '@/mock/schedule.mock';
 
 export function ReactCalendar({ events }: { events: scheduleValues[] }) {
-  const sample = [{ title: 'Meeting', start: new Date() }];
-
   return (
     <div className=' overflow-x-auto'>
       <FullCalendar
