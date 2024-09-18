@@ -27,16 +27,13 @@ import edit from '../../../public/assets/images/edit.png';
 import trash from '../../../public/assets/images/trash.png';
 
 //interface imports
-import { IEventInfo } from '@/types/Interfaces/schedule.interface';
+import { scheduleValues } from '@/types/Interfaces/schedule.interface';
 
-const events = [
-  { title: 'Meeting', start: new Date('2024-09-1') },
-  { title: 'Meeting', start: new Date('2024-09-1') },
-  { title: 'Meeting', start: new Date('2024-09-1') },
-  { title: 'Meeting', start: new Date('2024-09-1') },
-];
+import { scheduleInitialValues } from '@/mock/schedule.mock';
 
-export function ReactCalendar() {
+export function ReactCalendar({ events }: { events: scheduleValues[] }) {
+  const sample = [{ title: 'Meeting', start: new Date() }];
+
   return (
     <div className=' overflow-x-auto'>
       <FullCalendar
@@ -45,17 +42,10 @@ export function ReactCalendar() {
         initialView='dayGridMonth'
         initialDate={'2024-03-01'}
         weekends={true}
-        dayHeaderClassNames={() => {
-          return [
-            ' p-[10px] text-center ',
-            'w-[201px]',
-            'h-[50px]',
-            'text-semibold',
-            'text-[12px] font-inter tracking-wide',
-          ];
-        }}
-        dayCellClassNames={() => ['h-auto w-[201px]  ']}
-        events={events}
+        events={events.filter(item => {
+          if (item != scheduleInitialValues)
+            return { start: item.start, extendedProps: item };
+        })}
         eventContent={renderEventContent}
       />
     </div>
@@ -63,16 +53,20 @@ export function ReactCalendar() {
 }
 
 // a custom render function
-function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
+function renderEventContent(eventInfo: any) {
+  const { extendedProps } = eventInfo.event;
+
   return (
-    <div className='mx-4 mb-2 text-[12px] flex items-center tracking-wider font-inter text-customGray  font-thin w-[171px] h-[31px] border-none bg-white rounded-[2px_8px_8px_2px] shadow'>
+    <div className='mx-4 mb-2 text-[12px] flex items-center tracking-wider font-inter text-customGray  font-thin max-w-[171px] h-[31px] border-none bg-white rounded-[2px_8px_8px_2px] shadow'>
       <div className='w-[4px] h-full bg-sideBarBlue mr-1  rounded-[2px_0px_0px_2px]'></div>
 
       <div className='flex items-center w-full justify-between '>
         {' '}
-        <Dialog>
+        <Dialog key={extendedProps.user.id.value}>
           <DialogTrigger className='bg-white font-inter text-[12px] font-medium'>
-            {eventInfo.timeText + ' ' + eventInfo.event.title}
+            {extendedProps.site.length == 8
+              ? extendedProps.site
+              : extendedProps.site.substring(0, 8) + '...'}
           </DialogTrigger>
           <DialogContent className='w-[600px] h-[500px] p-4'>
             <DialogHeader>
@@ -93,7 +87,7 @@ function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
                   <div className='flex items-center justify-between'>
                     <p className='font-medium font-inter text-[14px]'>Sites</p>
                     <p className='text-[14px] font-medium font-inter text-customGray'>
-                      Pine Ridge
+                      {extendedProps.site}
                     </p>
                   </div>
                 </div>
@@ -111,7 +105,7 @@ function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
                   <div className='flex items-center justify-between'>
                     <p className='font-medium font-inter text-[14px]'>Job</p>
                     <p className='text-[14px] font-medium font-inter text-customGray'>
-                      Pine Ridge Service Unit
+                      {extendedProps.job}
                     </p>
                   </div>
                 </div>
@@ -129,7 +123,7 @@ function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
                   <div className='flex items-center justify-between'>
                     <p className='font-medium font-inter text-[14px]'>Date</p>
                     <p className='text-[14px] font-medium font-inter text-customGray'>
-                      Emergency Medicine
+                      {extendedProps.start}
                     </p>
                   </div>
                 </div>
@@ -149,7 +143,7 @@ function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
                       Schedule Start
                     </p>
                     <p className='text-[14px] font-medium font-inter text-customGray'>
-                      MON 24/05/2024
+                      {extendedProps.scheduleStart}
                     </p>
                   </div>
                 </div>
@@ -169,7 +163,7 @@ function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
                       Schedule End
                     </p>
                     <p className='text-[14px] font-medium font-inter text-customGray'>
-                      {'-'}
+                      {extendedProps.scheduleEnd}
                     </p>
                   </div>
                 </div>
@@ -216,11 +210,13 @@ function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
               <hr className='bg-borderGray ' />
               <div className='flex items-center justify-star'>
                 <Avatar className='h-[58px] w-[58px]'>
-                  <AvatarImage src='https://github.com/shadcn.png' />
+                  <AvatarImage src={extendedProps.user?.picture?.medium} />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <p className='font-inter ml-2 mt-5 mb-5 font-medium text-neutralGrey'>
-                  Devon Lames
+                  {extendedProps.user.name.first +
+                    ' ' +
+                    extendedProps.user.name.last}
                 </p>
               </div>
 
@@ -249,7 +245,7 @@ function renderEventContent(eventInfo: IEventInfo, key: number = 1) {
         </Dialog>
         <Image
           className='mr-2'
-          key={key++}
+          key={extendedProps.user.id.value}
           src={copy}
           alt='copy'
           width={16}

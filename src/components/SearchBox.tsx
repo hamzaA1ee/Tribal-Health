@@ -1,4 +1,5 @@
-import { Fragment } from 'react';
+'use client';
+import { Fragment, useState } from 'react';
 
 //UI imports
 
@@ -16,17 +17,27 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Checkbox } from '@/components/ui/checkbox';
 
 //interfaces imports
-import { IUserResponse } from '@/types/Interfaces/schedule.interface';
+import {
+  IUserResponse,
+  scheduleValues,
+} from '@/types/Interfaces/schedule.interface';
+//formik imports
+import { useFormikContext } from 'formik';
 
 export const SearchBox = ({
   userData,
   height,
   width,
+  event,
 }: {
   userData: IUserResponse;
   width: number;
   height: number;
+  event: boolean;
 }) => {
+  const [checked, setChecked] = useState(false);
+  const [clicked, setClicked] = useState(0);
+  const { values, setFieldValue } = useFormikContext<scheduleValues>();
   return (
     <Fragment>
       <Command>
@@ -38,8 +49,19 @@ export const SearchBox = ({
 
           {userData.results.map(item => (
             <Fragment key={item.id.value}>
-              <CommandItem className=' flex items-center hover:cursor-pointer max-h-[40px] mb-2  '>
-                <Checkbox className='mr-2 max-w-[18px] max-h-[18px] data-[state=checked]:bg-sideBarBlue ' />
+              <CommandItem
+                key={item.id.value}
+                className=' flex items-center hover:cursor-pointer max-h-[40px] mb-2  '
+              >
+                <Checkbox
+                  onClick={() => {
+                    if (event) {
+                      setFieldValue('user', item);
+                      console.log(values);
+                    }
+                  }}
+                  className='mr-2 max-w-[18px] max-h-[18px] data-[state=checked]:bg-sideBarBlue '
+                />
 
                 <Avatar className='w-8 h-8 mr-2'>
                   <AvatarImage

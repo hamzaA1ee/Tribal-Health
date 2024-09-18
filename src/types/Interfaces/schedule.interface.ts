@@ -27,3 +27,17 @@ export interface IEventInfo {
     start: Date;
   };
 }
+
+export interface scheduleValues {
+  user: IUser;
+  scheduleStart: string;
+  scheduleEnd: string;
+  start: string;
+  job: string;
+  site: string;
+}
+
+export interface IEvent {
+  user: IUser;
+  eventInfo: IEventInfo;
+}

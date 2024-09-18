@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-
+import { Toaster } from '@/components/ui/sonner';
 import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import { Providers } from '@/providers';
@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${inter.className} ${manrope.className} `}>
         <Providers>{children}</Providers>
+        <Toaster />
       </body>
     </html>
   );
